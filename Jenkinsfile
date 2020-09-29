@@ -1,19 +1,25 @@
 pipeline {
-    agent any 
+    agent any
     stages {
-        stage ('Copy index file') {
+        stage('Copy Index File copy') {
             steps {
-                echo "copying index file"
-                sh 'sudo cp index.html /usr/share/nginx/html'
+                echo 'I am copying index.html page'
+                sh 'sudo cp index.html  /usr/share/nginx/html'
             }
         }
-        stage ('Copy jpg file') {
+        stage('Copy Index jpeg file') {
             steps {
-    echo "copying index file"
+                echo 'I am copying jpeg page'
                 sh 'sudo cp devops.jpg /usr/share/nginx/html'
             }
         }
-        stage ('Job done') {
+        stage('Start or Status nginx') {
+            steps {
+                echo 'start or check status of nginx'
+                sh 'sudo service nginx start'
+            }
+        }
+                stage ('Job done') {
             steps {
                 echo "task complete"
             }
